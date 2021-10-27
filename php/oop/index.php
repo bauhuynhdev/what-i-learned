@@ -7,5 +7,13 @@ spl_autoload_register(function ($className) {
 $mysql = new MySql();
 $mysql->setDatabase('demo');
 Query::setDriver($mysql);
-$query = DB::table('users')->get();
-var_dump($query->toJson());
+try {
+    $query = DB::table('users')->get();
+    echo $query->toJson();
+} catch (DBException $e) {
+    echo 'DBException';
+} catch (QueryException $e) {
+    echo 'QueryException';
+} catch (Exception $e) {
+    echo 'Exception';
+}
