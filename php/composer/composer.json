@@ -1,0 +1,21 @@
+{
+  "name": "bau/composer",
+  "autoload": {
+    "psr-4": {
+      "Bau\\Composer\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Bau Huynh",
+      "email": "bau.hq@neo-lab.vn"
+    }
+  ],
+  "require": {},
+  "scripts": {
+    "start": "php src/index.php"
+  }
+}
