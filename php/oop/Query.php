@@ -104,8 +104,17 @@ class Query implements Arrayable, Jsonable
         return $this;
     }
 
+    /**
+     * @param $name
+     * @param $arguments
+     * @return $this
+     * @throws QueryException
+     */
     public function __call($name, $arguments): self
     {
+        if (!method_exists(__CLASS__, $name)) {
+            throw new QueryException();
+        }
         switch ($name) {
             case 'whereId':
                 $this->where([$this->primaryKey => $arguments[0]]);
